@@ -1,0 +1,82 @@
+/* styles/theme.css */
+
+/* -----------------------------
+   Fonts (serif + clean sans)
+   ----------------------------- */
+:root {
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-sans: "Instrument Serif", "Times New Roman", serif;
+}
+
+/* -----------------------------
+   Light theme (default)
+   ----------------------------- */
+:root {
+  /* Core */
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --text: #2b2a27;
+  --text-muted: #6e6c66;
+  --border: #e2ded6;
+
+  /* Accents */
+  --accent: #c96a4a;        /* primary accent */
+  --accent-2: #9e7e63;      /* secondary accent */
+  --highlight: #e6b8a2;     /* subtle highlight */
+
+  /* States (simple, consistent) */
+  --link: var(--accent);
+  --link-hover: #b85f43;    /* slightly deeper accent */
+  --focus: var(--highlight);
+}
+
+/* -----------------------------
+   Dark theme (toggle via [data-theme="dark"])
+   ----------------------------- */
+[data-theme="dark"] {
+  /* Core */
+  --bg: #1f1e1b;
+  --surface: #262522;
+  --text: #eae7e1;
+  --text-muted: #a8a49b;
+  --border: #34332f;
+
+  /* Accents */
+  --accent: #d27c5a;
+  --accent-2: #b89b7a;
+  --highlight: #8f6b55;
+
+  /* States */
+  --link: var(--accent);
+  --link-hover: #e08a6a;
+  --focus: var(--accent-2);
+}
+
+/* -----------------------------
+   Optional baseline styles
+   ----------------------------- */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
