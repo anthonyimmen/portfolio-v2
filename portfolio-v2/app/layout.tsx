@@ -2,8 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Anthony Immenschuh — Portfolio",
-  description: "Personal portfolio and selected projects.",
+  title: "anthony immenschuh dot com",
+  description: "a curated portfolio by anthony immenschuh",
+  icons: {
+    icon: [
+      { url: "/light%20icon.ico", media: "(prefers-color-scheme: light)" },
+      { url: "/dark%20icon.ico", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
 };
 
 export default function RootLayout({
