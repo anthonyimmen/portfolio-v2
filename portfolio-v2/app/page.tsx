@@ -22,7 +22,12 @@ export default function Home() {
           <h1 className="hero">
             hey, <strong>i&apos;m anthony</strong>.<br />
             a full-stack software engineer at{" "}
-            <a href="https://www.jpmorganchase.com" target="_blank" rel="noreferrer">
+            <a
+              className="accent-underline"
+              href="https://www.jpmorganchase.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               JPMorganChase
             </a>{" "}
             with 2.5+ years of experience building production systems with a focus on clarity, reliability, and user experience.
@@ -35,7 +40,12 @@ export default function Home() {
             <p>
               at JPMorganChase, i&apos;ve worked in the account opening and
               acquisitions space for{" "}
-              <a href="https://www.chase.com/business" target="_blank" rel="noreferrer">
+              <a
+                className="accent-underline"
+                href="https://www.chase.com/business"
+                target="_blank"
+                rel="noreferrer"
+              >
                 chase.com/business
               </a>
               , contributing across both frontend and backend systems that
@@ -74,7 +84,8 @@ export default function Home() {
             <div className="projects">
               <div>
                 <a className="project-link" href="www.ascii-it.com">
-                  ascii-it <i className="ph ph-arrow-up-right" />
+                  <span className="project-link-text">ascii-it</span>
+                  <i className="ph ph-arrow-up-right" />
                 </a>
                 <p>
                   a simple, intuitive tool for converting images into ascii
@@ -84,7 +95,8 @@ export default function Home() {
               </div>
               <div>
                 <a className="project-link" href="www.goalapp.io">
-                  goal <i className="ph ph-arrow-up-right" />
+                  <span className="project-link-text">goal</span>
+                  <i className="ph ph-arrow-up-right" />
                 </a>
                 <p>
                   a single-task task manager built around one idea: focus beats
@@ -95,7 +107,8 @@ export default function Home() {
               </div>
               <div>
                 <a className="project-link" href="www.anthonyimmenschuh.com">
-                  this site <i className="ph ph-arrow-up-right" />
+                  <span className="project-link-text">this site</span>
+                  <i className="ph ph-arrow-up-right" />
                 </a>
                 <p>
                   my personal space, intentionally minimal, text-first, and

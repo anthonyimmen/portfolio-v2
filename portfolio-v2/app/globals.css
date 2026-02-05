@@ -157,7 +157,7 @@ html[data-theme="dark"] .menu-dropdown {
 
 .hero strong {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .divider {
@@ -196,6 +196,15 @@ html[data-theme="dark"] .menu-dropdown {
   align-items: center;
   gap: 6px;
   font-weight: 600;
+}
+
+.project-link-text {
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  /* border-bottom: 1px solid currentColor;
+  padding-bottom: .5px; */
 }
 
 .project-link .ph .ph-thin {

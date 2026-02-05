@@ -75,6 +75,18 @@ a:hover {
   color: var(--link-hover);
 }
 
+.accent-underline {
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-2);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.accent-underline:hover {
+  color: var(--accent-2);
+}
+
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
