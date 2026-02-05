@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { label: "about", href: "#about", mobileOnly: false },
   { label: "projects", href: "#projects", mobileOnly: false },
   { label: "contact", href: "#contact", mobileOnly: false },
-  { label: "chat", href: "#chat", mobileOnly: true },
+  // { label: "chat", href: "#chat", mobileOnly: true },
 ];
 
 export default function TopMenu() {

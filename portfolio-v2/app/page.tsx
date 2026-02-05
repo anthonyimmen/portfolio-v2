@@ -1,6 +1,8 @@
 import ThemeToggle from "./components/ThemeToggle";
 import TopMenu from "./components/TopMenu";
 
+// TODO: add smooth animation for text to appear
+
 export default function Home() {
   return (
     <div className="page">
@@ -114,7 +116,7 @@ export default function Home() {
             <p>
               reach me via any of the socials below, or email me directly at{" "}
               <a href="mailto:anthonyimmen279@gmail.com">
-                anthonyimmen27@gmail.com
+                anthonyimmen279@gmail.com
               </a>
               .
             </p>
@@ -170,9 +172,9 @@ export default function Home() {
         <div id="chat" className="chat-anchor" />
       </div>
 
-      <button className="chat-fab" type="button" aria-label="Open chat">
+      {/* <button className="chat-fab" type="button" aria-label="Open chat">
         <i className="ph-thin ph-chat-text"/>
-      </button>
+      </button> */}
     </div>
   );
 }

@@ -42,6 +42,8 @@ img {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 40px;
+  flex-wrap: nowrap;
+  position: relative;
 }
 
 .brand {
@@ -49,12 +51,14 @@ img {
   align-items: center;
   gap: 12px;
   font-family: var(--font-serif);
-  font-size: 30px;
+  font-size: clamp(20px, 3vw, 30px);
+  min-width: 0;
 }
 
 .brand-logo {
-  width: 56px;
-  height: 56px;
+  width: clamp(40px, 6vw, 56px);
+  height: clamp(40px, 6vw, 56px);
+  flex-shrink: 0;
 }
 
 html[data-theme="dark"] .brand-logo {
@@ -65,7 +69,9 @@ html[data-theme="dark"] .brand-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: clamp(12px, 3vw, 24px);
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .menu {
@@ -88,12 +94,12 @@ html[data-theme="dark"] .brand-logo {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0px 50px rgba(0, 0, 0, 0.12);
   z-index: 10;
 }
 
 html[data-theme="dark"] .menu-dropdown {
-  box-shadow: 0 0px 40px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0px 50px rgba(255, 255, 255, 0.12);
 }
 
 
@@ -120,19 +126,19 @@ html[data-theme="dark"] .menu-dropdown {
 }
 
 .icon-button .ph {
-  font-size: 38px;
+  font-size: clamp(28px, 5vw, 38px);
 }
 
 .ph-sun {
-  font-size: 36px;
+  font-size: clamp(26px, 5vw, 36px);
 }
 
 .ph-moon {
-  font-size: 36px;
+  font-size: clamp(26px, 5vw, 36px);
 }
 
 .ph-article {
-  font-size: 36px;
+  font-size: clamp(26px, 5vw, 36px);
 }
 
 .ph-chat-text {
@@ -335,7 +341,33 @@ html[data-theme="dark"] .menu-dropdown {
   }
 
   .topbar {
-    flex-direction: column;
-    align-items: flex-start;
+    padding-right: 92px;
+  }
+
+  .top-actions {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 16px;
+  }
+
+  .brand {
+    font-size: clamp(18px, 5.5vw, 24px);
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-button .ph {
+    font-size: 28px;
+  }
+
+  .ph-sun,
+  .ph-moon,
+  .ph-article {
+    font-size: 26px;
   }
 }
