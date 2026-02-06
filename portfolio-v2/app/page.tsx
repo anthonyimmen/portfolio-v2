@@ -83,7 +83,12 @@ export default function Home() {
             <h2 className="section-title">- projects -</h2>
             <div className="projects">
               <div>
-                <a className="project-link" href="www.ascii-it.com">
+                <a
+                  className="project-link"
+                  href="https://www.ascii-it.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="project-link-text">ascii-it</span>
                   <i className="ph ph-arrow-up-right" />
                 </a>
@@ -94,7 +99,12 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <a className="project-link" href="www.goalapp.io">
+                <a
+                  className="project-link"
+                  href="https://www.goalapp.io"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="project-link-text">goal</span>
                   <i className="ph ph-arrow-up-right" />
                 </a>
@@ -106,7 +116,12 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <a className="project-link" href="www.anthonyimmenschuh.com">
+                <a
+                  className="project-link"
+                  href="https://www.anthonyimmenschuh.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="project-link-text">this site</span>
                   <i className="ph ph-arrow-up-right" />
                 </a>

@@ -346,7 +346,7 @@ html[data-theme="dark"] .menu-dropdown {
 
 @media (max-width: 640px) {
   .page {
-    padding: 32px 20px 80px;
+    padding: 32px 20px 60px;
   }
 
   .topbar {
