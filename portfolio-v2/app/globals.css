@@ -358,7 +358,7 @@ html[data-theme="dark"] .menu-dropdown {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 2px;
 }
 
 .chat-input input {
