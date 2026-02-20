@@ -1,3 +1,4 @@
+import ChatWidget from "./components/ChatWidget";
 import ThemeToggle from "./components/ThemeToggle";
 import TopMenu from "./components/TopMenu";
 
@@ -48,17 +49,22 @@ export default function Home() {
               >
                 chase.com/business
               </a>
-              , contributing across both frontend and backend systems that
-              support core application workflows.
+              , contributing across frontend and backend systems that support
+              core application workflows.
             </p>
             <p>
-              i&apos;m comfortable moving across the stack and shipping
-              end-to-end features, from clean, user-facing interfaces to backend
-              services that power them.
+              today, i'm on the application platform side for chase, i build
+              backend applications for foreign credit checks in digital account
+              opening, services that support in-branch account opening, and
+              AI/ML tools.
             </p>
             <p>
-              i&apos;m currently pursuing a part-time MS in computer science at
-              the university of texas at austin, while working full-time.
+              across the stack, i ship end-to-end features, from clean
+              user-facing interfaces to reliable backend services.
+            </p>
+            <p>
+              alongside full-time work, i&apos;m pursuing a part-time MS in
+              computer science at the university of texas at austin.
             </p>
           </section>
 
@@ -162,47 +168,8 @@ export default function Home() {
           </section>
         </main>
 
-        {/* <aside id="chat" className="chat-card card">
-          <div className="chat-header">
-            <span>Chat</span>
-            <button className="icon-button" type="button" aria-label="Chat settings">
-              <i className="ph ph-gear-six" />
-            </button>
-          </div>
-          <div className="chat-body">
-            <div className="chat-bubble">
-              hey, i&apos;m gpt 4.1 nano trained to act like anthony.
-            </div>
-            <div className="chat-bubble">
-              ask me anything about my experiences, projects, art, music,
-              coffee, etc.
-            </div>
-            <div className="chat-meta">anthony-bot · 12:57pm</div>
-            <div className="chat-bubble">
-              what is your most impactful project?
-            </div>
-            <div className="chat-meta muted">you · 12:59pm</div>
-            <div className="chat-bubble">
-              towards late 2024 and early 2025, i worked on a React hook for
-              verifying that businesses were not fraudulent. this hook was a
-              part of our fraud overhaul initiative and it reduced customer
-              timeouts and increases our accuracy in error reporting by 30%.
-            </div>
-            <div className="chat-meta">anthony-bot · 1:00pm</div>
-          </div>
-          <div className="chat-input">
-            <input type="text" placeholder="craft a message..." />
-            <button className="send-button" type="button" aria-label="Send message">
-              <i className="ph ph-arrow-up" />
-            </button>
-          </div>
-        </aside> */}
-        <div id="chat" className="chat-anchor" />
+        <ChatWidget />
       </div>
-
-      {/* <button className="chat-fab" type="button" aria-label="Open chat">
-        <i className="ph-thin ph-chat-text"/>
-      </button> */}
     </div>
   );
 }
