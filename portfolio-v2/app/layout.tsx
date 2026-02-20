@@ -1,9 +1,33 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.anthonyimmenschuh.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "anthony immenschuh dot com",
   description: "a curated portfolio by anthony immenschuh",
+  openGraph: {
+    title: "anthony immenschuh dot com",
+    description: "a curated portfolio by anthony immenschuh",
+    url: "/",
+    siteName: "anthony immenschuh dot com",
+    type: "website",
+    images: [
+      {
+        url: "/banner.png",
+        width: 2504,
+        height: 1152,
+        alt: "anthony immenschuh portfolio banner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "anthony immenschuh dot com",
+    description: "a curated portfolio by anthony immenschuh",
+    images: ["/banner.png"],
+  },
   icons: {
     icon: [
       { url: "/light%20icon.ico", media: "(prefers-color-scheme: light)" },
