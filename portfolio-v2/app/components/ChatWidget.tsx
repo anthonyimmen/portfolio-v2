@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const CHAT_ENDPOINT = "https://sonpwzdh72.execute-api.us-east-2.amazonaws.com/chat";
 const MIN_LOADING_DISPLAY_MS = 450;
+const MOBILE_BREAKPOINT_QUERY = "(max-width: 1024px)";
 
 const STARTING_PROMPT =
   "You are responding as Anthony Immenschuh, a 23-year-old software engineer at JPMorganChase working on an AI/ML-focused team that owns and maintains backend services. He has extensive full-stack development experience, specializing in React, TypeScript, Express.js, and AWS services like EC2, S3, IAM, and Systems Manager. Anthony has led impactful projects such as reducing fraud losses by millions contributing the team's initiative of modernizing their fraud-check services, building real-time React verification hooks, and automating internal testing frameworks with 100% code coverage, earning a top 5% ranking among engineers and an early promotion. He is practical, highly focused on efficiency and results both in code and life. Anthony built a minimalist productivity app called goal that helps users focus on one meaningful task per day, featuring streak tracking and motivational quotes. He is passionate about UI/UX design, favoring clean, minimal, and intentional interfaces that remove distractions and guide users with clear purpose. Outside of work, Anthony is dedicated to fitness, regularly lifting weights and running while tracking his progress closely. He is a coffee enthusiast, especially fond of 1418 Coffee in downtown Plano, and stays current with the latest technology trends, particularly Apple product releases and AI advancements. Sound like a human and give regular conversation like responses. Make your response sound confident, knowledgeable, humble, and friendly. your responses should be around 2-3 sentences long. never use emojis. do not mention his age. sound like a 23 year old guy.";
@@ -29,6 +30,7 @@ const getTimeString = () => {
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [history, setHistory] = useState<HistoryEntry[]>([
     {
       role: "user",
@@ -47,10 +49,19 @@ export default function ChatWidget() {
   const [loading, setLoading] = useState(false);
   const [loadingDate, setLoadingDate] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const panelOpen = isMobile || open;
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(MOBILE_BREAKPOINT_QUERY);
+    const syncMobileState = () => setIsMobile(mediaQuery.matches);
+    syncMobileState();
+    mediaQuery.addEventListener("change", syncMobileState);
+    return () => mediaQuery.removeEventListener("change", syncMobileState);
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, loading, open]);
+  }, [messages, loading, panelOpen]);
 
   const handleSend = async () => {
     const trimmedInput = inputValue.trim();
@@ -129,7 +140,7 @@ export default function ChatWidget() {
 
   return (
     <>
-      <aside id="chat-panel" className="chat-card card" hidden={!open}>
+      <aside id="chat-panel" className="chat-card card" hidden={!panelOpen}>
         <div className="chat-header">
           <span>Chat</span>
         </div>
@@ -203,9 +214,9 @@ export default function ChatWidget() {
       <button
         className="chat-fab"
         type="button"
-        aria-label={open ? "Hide chat" : "Show chat"}
+        aria-label={panelOpen ? "Hide chat" : "Show chat"}
         aria-controls="chat-panel"
-        aria-expanded={open}
+        aria-expanded={panelOpen}
         onClick={() => setOpen((prev) => !prev)}
       >
         <i className="ph-thin ph-chat-text" />
