@@ -319,7 +319,7 @@ html[data-theme="dark"] .menu-dropdown {
   font-size: 16px;
   width: fit-content;
   max-width: 80%;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
 }
 
 .chat-bubble.bot {
@@ -334,7 +334,7 @@ html[data-theme="dark"] .menu-dropdown {
   align-self: flex-end;
   background: #3b3933;
   color: var(--bg);
-  text-align: right;
+  text-align: left;
 }
 
 [data-theme="dark"] .chat-bubble.user {
@@ -352,6 +352,64 @@ html[data-theme="dark"] .menu-dropdown {
 .chat-meta.user {
   align-self: flex-end;
   text-align: right;
+}
+
+.chat-prefill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.chat-prefill::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-prefill-chip {
+  border: 1px solid transparent;
+  margin-top: 10px;
+  border-radius: 999px;
+  padding: 9px 16px;
+  background: #6e6c66;
+  color: #f6f4ef;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.16s ease, background-color 0.16s ease, opacity 0.16s ease;
+}
+
+.chat-prefill-chip:hover {
+  background: #62605a;
+  transform: translateY(-1px);
+}
+
+.chat-prefill-chip:focus,
+.chat-prefill-chip:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.chat-prefill-chip:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+[data-theme="dark"] .chat-prefill-chip {
+  background: #3b3933;
+  color: var(--text);
+}
+
+[data-theme="dark"] .chat-prefill-chip:hover {
+  background: #44413b;
 }
 
 .chat-input {
