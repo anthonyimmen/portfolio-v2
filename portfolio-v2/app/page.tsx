@@ -73,7 +73,7 @@ export default function Home() {
           <section className="section">
             <h2 className="section-title">- technologies i work with -</h2>
             <p>
-              typescript, javascript, react, python, java, spring boot, node.js,
+              typescript, javascript, react, react native, python, java, spring boot, node.js,
               sql, aws, c, c++, figma
             </p>
             <p>
