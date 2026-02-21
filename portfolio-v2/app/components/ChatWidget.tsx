@@ -241,7 +241,7 @@ export default function ChatWidget() {
             onChange={(event) => setInputValue(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
-                handleSend();
+                void handleSend();
               }
             }}
           />
@@ -250,7 +250,9 @@ export default function ChatWidget() {
             type="button"
             aria-label="Send message"
             disabled={isSendDisabled}
-            onClick={handleSend}
+            onClick={() => {
+              void handleSend();
+            }}
           >
             <i className="ph ph-arrow-up" />
           </button>
