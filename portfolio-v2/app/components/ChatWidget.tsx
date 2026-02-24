@@ -73,7 +73,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       messageText:
-        "hey i'm anthony-bot. ask me anything about my projects, technologies, coffee, art, music, etc...",
+        "hey, i'm gpt-4.1 nano trained to act like anthony. ask me anything about my projects, technologies, coffee, art, music, etc...",
       messageAuthor: "anthony-bot",
       messageDate: getTimeString(),
     },

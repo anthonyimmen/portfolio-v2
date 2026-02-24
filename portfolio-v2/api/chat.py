@@ -6,7 +6,7 @@ from typing import Any, Dict, List, Optional
 from urllib import error, request
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4.1-nano")
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 
 
