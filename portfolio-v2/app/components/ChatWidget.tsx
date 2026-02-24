@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const CHAT_ENDPOINT = "https://sonpwzdh72.execute-api.us-east-2.amazonaws.com/chat";
+const CHAT_ENDPOINT = "/api/chat";
 const MIN_LOADING_DISPLAY_MS = 450;
 const MOBILE_BREAKPOINT_QUERY = "(max-width: 1024px)";
 
@@ -43,7 +43,7 @@ Never say you are an AI. Never break character. Do not invent or hallucinate exp
 `;
 
 type HistoryEntry = {
-  role: "user" | "model";
+  role: "system" | "user" | "model";
   parts: Array<{ text: string }>;
 };
 
@@ -66,14 +66,14 @@ export default function ChatWidget() {
   const [isMobile, setIsMobile] = useState(false);
   const [history, setHistory] = useState<HistoryEntry[]>([
     {
-      role: "user",
+      role: "system",
       parts: [{ text: STARTING_PROMPT }],
     },
   ]);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       messageText:
-        "hey i'm gemini 2.5 flash trained to act like anthony. ask me anything about my projects, technologies, coffee, art, music, etc...",
+        "hey i'm anthony-bot. ask me anything about my projects, technologies, coffee, art, music, etc...",
       messageAuthor: "anthony-bot",
       messageDate: getTimeString(),
     },
@@ -135,7 +135,7 @@ export default function ChatWidget() {
       const data = (await response.json()) as { reply?: string };
       const reply =
         data.reply?.trim() ||
-        "Sorry, I couldn't get a response from Gemini. Please try again later.";
+        "Sorry, I couldn't get a response right now. Please try again later.";
 
       setMessages((prev) => [
         ...prev,
@@ -152,7 +152,7 @@ export default function ChatWidget() {
         ...prev,
         {
           messageText:
-            "Sorry, I couldn't get a response from Gemini. Please try again later.",
+            "Sorry, I couldn't get a response right now. Please try again later.",
           messageAuthor: "anthony-bot",
           messageDate: getTimeString(),
         },
