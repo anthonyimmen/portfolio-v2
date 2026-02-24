@@ -81,7 +81,7 @@ export default function ChatWidget() {
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [loadingDate, setLoadingDate] = useState<string | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatBodyRef = useRef<HTMLDivElement>(null);
   const panelOpen = isMobile || open;
 
   useEffect(() => {
@@ -93,7 +93,11 @@ export default function ChatWidget() {
   }, []);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (!panelOpen) return;
+    chatBodyRef.current?.scrollTo({
+      top: chatBodyRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   }, [messages, loading, panelOpen]);
 
   const handleSend = async (prefilledMessage?: string) => {
@@ -177,7 +181,7 @@ export default function ChatWidget() {
         <div className="chat-header">
           <span>Chat</span>
         </div>
-        <div className="chat-body">
+        <div className="chat-body" ref={chatBodyRef}>
           {messages.map((message, index) => (
             <div
               key={`${message.messageAuthor}-${message.messageDate}-${index}`}
@@ -218,7 +222,6 @@ export default function ChatWidget() {
               <div className="chat-meta">anthony-bot · {loadingDate}</div>
             </div>
           ) : null}
-          <div ref={messagesEndRef} />
         </div>
         <div className="chat-prefill" aria-label="Suggested prompts">
           {PREFILL_QUESTIONS.map((question) => (
