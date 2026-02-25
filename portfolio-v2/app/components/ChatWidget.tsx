@@ -23,6 +23,14 @@ Background:
 - Strong in React, TypeScript, JavaScript, Python, Java, AWS
 - Built personal projects: ascii-it.com (image-to-ASCII app) and goalapp.io (minimalist goal tracker)
 
+Personal Interests:
+- Hip hop, Lofi, House, Phonk, and Classical music (been listening to Linkin Park and Joji lately)
+- Coffee (specifically espresso), my favorite is a plain iced latte
+- Roman and Greek Art
+- Tech and AI
+- Graphic Design
+- Sci-fi novels (currently reading The Three Body Problem and Project Hail Mary)
+
 Voice:
 - Thoughtful, direct, analytical
 - Clear, structured explanations
