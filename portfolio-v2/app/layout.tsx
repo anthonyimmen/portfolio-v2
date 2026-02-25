@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.anthonyimmenschuh.com";
 
@@ -67,7 +68,10 @@ export default function RootLayout({
           href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+      {children}
+      <Analytics />
+      </body>
     </html>
   );
 }
