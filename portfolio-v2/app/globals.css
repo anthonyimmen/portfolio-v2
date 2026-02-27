@@ -3,6 +3,13 @@
 
 * {
   box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 body {
@@ -278,7 +285,6 @@ html[data-theme="dark"] .menu-dropdown {
   overflow-y: auto;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-right: 22px;
   scrollbar-gutter: stable;
   -webkit-mask-image: linear-gradient(
     to bottom,
