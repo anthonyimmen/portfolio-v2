@@ -53,7 +53,7 @@ export default function Home() {
               core application workflows.
             </p>
             <p>
-              today, i'm on the application platform side for chase, i build
+              today, i&apos;m on the application platform side for chase, i build
               backend applications for foreign credit checks in digital account
               opening, services that support in-branch account opening, and
               AI/ML tools.
@@ -91,6 +91,22 @@ export default function Home() {
               <div>
                 <a
                   className="project-link"
+                  href="https://www.getpr.app"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="project-link-text">PR</span>
+                  <i className="ph ph-arrow-up-right" />
+                </a>
+                <p>
+                  an iPhone workout tracker that plans workouts, logs sets in
+                  seconds, and helps lifters train toward their next personal
+                  record. currently available in public beta through TestFlight.
+                </p>
+              </div>
+              <div>
+                <a
+                  className="project-link"
                   href="https://www.ascii-it.com"
                   target="_blank"
                   rel="noreferrer"
@@ -102,23 +118,6 @@ export default function Home() {
                   a simple, intuitive tool for converting images into ascii
                   art. includes support for converting twitter / x profile
                   images and banners.
-                </p>
-              </div>
-              <div>
-                <a
-                  className="project-link"
-                  href="https://www.goalapp.io"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="project-link-text">goal</span>
-                  <i className="ph ph-arrow-up-right" />
-                </a>
-                <p>
-                  a single-task task manager built around one idea: focus beats
-                  overload. instead of juggling lists, users commit to one task
-                  at a time to increase follow-through. built as a react native
-                  application.
                 </p>
               </div>
               <div>
