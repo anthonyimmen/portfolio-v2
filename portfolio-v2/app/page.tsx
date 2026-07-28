@@ -31,7 +31,7 @@ export default function Home() {
             >
               JPMorganChase
             </a>{" "}
-            with 2.5+ years of experience building production systems with a focus on clarity, reliability, and user experience.
+            with 3+ years of experience building production systems with a focus on clarity, reliability, and user experience.
           </h1>
 
           <hr className="divider" />
