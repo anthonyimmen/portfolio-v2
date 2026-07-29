@@ -187,6 +187,7 @@ export default function ChatWidget() {
 
   return (
     <>
+      <div id="chat" className="chat-anchor" />
       <aside id="chat-panel" className="chat-card card" hidden={!panelOpen}>
         <div className="chat-header">
           <span>Chat</span>
@@ -271,7 +272,6 @@ export default function ChatWidget() {
           </button>
         </div>
       </aside>
-      <div id="chat" className="chat-anchor" />
       <button
         className="chat-fab"
         type="button"

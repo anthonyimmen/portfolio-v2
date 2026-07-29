@@ -12,10 +12,32 @@
   height: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   line-height: 1.7;
   letter-spacing: 0.01em;
+}
+
+.section[id],
+.chat-anchor {
+  scroll-margin-top: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 img {
@@ -88,37 +110,111 @@ html[data-theme="dark"] .brand-logo {
   align-items: center;
 }
 
+.menu-scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 20;
+  animation: menu-scrim-in 0.16s ease-out;
+}
+
 .menu-dropdown {
   position: absolute;
   right: 0;
-  top: calc(100% + 10px);
-  min-width: 110px;
-  max-width: 110px;
-  padding: 10px;
+  top: calc(100% + 12px);
+  min-width: 186px;
+  padding: 6px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 0px 50px rgba(0, 0, 0, 0.12);
-  z-index: 10;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+  transform-origin: top right;
+  animation: menu-dropdown-in 0.16s ease-out;
+  z-index: 30;
 }
 
 html[data-theme="dark"] .menu-dropdown {
-  box-shadow: 0 0px 50px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
 }
-
 
 .menu-link {
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 17px;
+  line-height: 1;
   text-transform: lowercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--text);
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.menu-link:hover {
+.menu-link i {
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.menu-link:hover,
+.menu-link:focus-visible {
+  outline: none;
+  background: rgba(201, 106, 74, 0.1);
   color: var(--accent);
+}
+
+html[data-theme="dark"] .menu-link:hover,
+html[data-theme="dark"] .menu-link:focus-visible {
+  background: rgba(210, 124, 90, 0.14);
+}
+
+.menu-link:hover i,
+.menu-link:focus-visible i,
+.menu-link.is-active i {
+  color: var(--accent);
+}
+
+.menu-link.is-active {
+  color: var(--accent);
+}
+
+.menu-link.is-active::after {
+  content: "";
+  margin-left: auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.menu-trigger.is-open {
+  color: var(--accent);
+}
+
+@keyframes menu-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes menu-scrim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .icon-button {
@@ -250,6 +346,148 @@ html[data-theme="dark"] .menu-dropdown {
 .socials a:hover {
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+.heatmap {
+  --heatmap-cell: 10px;
+  --heatmap-gap: 3px;
+  --heatmap-months-height: 15px;
+  --heatmap-fade: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.heatmap-wrapper {
+  position: relative;
+}
+
+.heatmap-scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Fade only the edges that actually have more calendar behind them. */
+.heatmap-scroller.fade-left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--heatmap-fade));
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--heatmap-fade));
+}
+
+.heatmap-scroller.fade-right {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 calc(100% - var(--heatmap-fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    #000 calc(100% - var(--heatmap-fade)),
+    transparent 100%
+  );
+}
+
+.heatmap-scroller.fade-left.fade-right {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--heatmap-fade),
+    #000 calc(100% - var(--heatmap-fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--heatmap-fade),
+    #000 calc(100% - var(--heatmap-fade)),
+    transparent 100%
+  );
+}
+
+.heatmap-layout {
+  display: flex;
+  width: max-content;
+}
+
+.heatmap-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--heatmap-gap);
+}
+
+.heatmap-months {
+  display: grid;
+  column-gap: var(--heatmap-gap);
+  height: var(--heatmap-months-height);
+  font-size: 11px;
+  line-height: 1;
+  color: var(--text-muted);
+}
+
+.heatmap-months span {
+  white-space: nowrap;
+}
+
+.heatmap-grid {
+  display: grid;
+  column-gap: var(--heatmap-gap);
+}
+
+.heatmap-column {
+  display: grid;
+  grid-template-rows: repeat(7, var(--heatmap-cell));
+  row-gap: var(--heatmap-gap);
+}
+
+.heatmap-cell {
+  width: var(--heatmap-cell);
+  height: var(--heatmap-cell);
+  border-radius: 3px;
+  background: var(--heat-0);
+}
+
+.heatmap-cell.is-empty {
+  background: transparent;
+}
+
+.heatmap-cell[data-level="1"] {
+  background: var(--heat-1);
+}
+
+.heatmap-cell[data-level="2"] {
+  background: var(--heat-2);
+}
+
+.heatmap-cell[data-level="3"] {
+  background: var(--heat-3);
+}
+
+.heatmap-cell[data-level="4"] {
+  background: var(--heat-4);
+}
+
+.heatmap-tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 8px));
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--text-muted);
 }
 
 .chat-card {
@@ -550,6 +788,18 @@ html[data-theme="dark"] .menu-dropdown {
     padding: 32px 20px 60px;
   }
 
+  .menu-scrim {
+    display: block;
+  }
+
+  .menu-dropdown {
+    min-width: 210px;
+  }
+
+  .heatmap {
+    --heatmap-cell: 11px;
+  }
+
   .topbar {
     padding-right: 92px;
   }
@@ -561,6 +811,8 @@ html[data-theme="dark"] .menu-dropdown {
     padding-right: 5px;
     transform: translateY(-50%);
     gap: 16px;
+    /* Keeps the trigger and dropdown above the menu scrim. */
+    z-index: 30;
   }
 
   .brand {

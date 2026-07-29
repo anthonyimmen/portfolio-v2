@@ -28,6 +28,13 @@
   --link: var(--accent);
   --link-hover: #b85f43;    /* slightly deeper accent */
   --focus: var(--highlight);
+
+  /* Contribution heatmap ramp */
+  --heat-0: #e9e5dd;
+  --heat-1: #f2d3c4;
+  --heat-2: #e2a88b;
+  --heat-3: #d0825e;
+  --heat-4: #b45a37;
 }
 
 /* -----------------------------
@@ -50,6 +57,13 @@
   --link: var(--accent);
   --link-hover: #e08a6a;
   --focus: var(--accent-2);
+
+  /* Contribution heatmap ramp */
+  --heat-0: #2c2b27;
+  --heat-1: #5b3527;
+  --heat-2: #8a4d34;
+  --heat-3: #b46744;
+  --heat-4: #e28a62;
 }
 
 /* -----------------------------
