@@ -1,8 +1,12 @@
 import ChatWidget from "./components/ChatWidget";
+import ContributionHeatmap from "./components/ContributionHeatmap";
 import ThemeToggle from "./components/ThemeToggle";
 import TopMenu from "./components/TopMenu";
 
 // TODO: add smooth animation for text to appear
+
+// Refresh the GitHub contribution calendar hourly.
+export const revalidate = 3600;
 
 export default function Home() {
   return (
@@ -82,6 +86,10 @@ export default function Home() {
               business outcomes.
             </p>
           </section>
+
+          <hr className="divider" />
+
+          <ContributionHeatmap />
 
           <hr className="divider" />
 
