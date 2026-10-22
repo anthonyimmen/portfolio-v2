@@ -1,11 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
 const THEME_ICONS: Record<Theme, string> = {
   light: "/light%20icon.ico",
   dark: "/dark%20icon.ico",
+};
+
+const getTheme = (): Theme =>
+  document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+
+const getServerTheme = (): Theme => "dark";
+
+const subscribeToTheme = (onChange: () => void) => {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
 };
 
 const setThemeFavicon = (theme: Theme) => {
@@ -22,22 +36,16 @@ const setThemeFavicon = (theme: Theme) => {
 };
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const theme = useSyncExternalStore(subscribeToTheme, getTheme, getServerTheme);
 
   useEffect(() => {
-    const currentTheme =
-      document.documentElement.getAttribute("data-theme") === "light"
-        ? "light"
-        : "dark";
-    setTheme(currentTheme);
-    setThemeFavicon(currentTheme);
-  }, []);
+    setThemeFavicon(theme);
+  }, [theme]);
 
   const handleToggle = () => {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", nextTheme);
     setThemeFavicon(nextTheme);
-    setTheme(nextTheme);
   };
 
   return (

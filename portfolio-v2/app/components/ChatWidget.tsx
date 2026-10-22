@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const CHAT_ENDPOINT = "/api/chat";
 const MIN_LOADING_DISPLAY_MS = 450;
@@ -110,7 +110,7 @@ export default function ChatWidget() {
     });
   }, [messages, loading, panelOpen]);
 
-  const handleSend = async (prefilledMessage?: string) => {
+  const handleSend = useCallback(async (prefilledMessage?: string) => {
     const trimmedInput = (prefilledMessage ?? inputValue).trim();
     if (!trimmedInput || loading) return;
 
@@ -181,7 +181,7 @@ export default function ChatWidget() {
       setLoading(false);
       setLoadingDate(null);
     }
-  };
+  }, [history, inputValue, loading]);
 
   const isSendDisabled = loading || inputValue.trim().length === 0;
 
